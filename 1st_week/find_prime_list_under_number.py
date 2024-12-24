@@ -25,3 +25,35 @@ result = find_prime_list_under_number(20)
 
 print(result)
 print(find_prime_list_under_number(34))
+
+
+def find_prime_list_under_number_v2(number):
+    prime_list = []
+    for n in range(2, number + 1):
+        for i in prime_list:
+            if n % i == 0:
+                break
+        else:
+            prime_list.append(n)
+
+    return prime_list
+
+
+result = find_prime_list_under_number_v2(20)
+print(result)
+
+def find_prime_list_under_number_v3(number):
+    prime_list = []
+
+    for n in range(2, number + 1):
+        for i in prime_list:
+            if n % i == 0 and i * i <= n:
+                break
+        else:
+            prime_list.append(n)
+
+    return prime_list
+
+
+result = find_prime_list_under_number_v3(20)
+print(result)
