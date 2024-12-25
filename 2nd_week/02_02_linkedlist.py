@@ -67,6 +67,17 @@ class LinkedList:
 
         return cur
 
+    def add_node(self, index, value): # 인덱스에 밀어넣기.
+        new_node = Node(value)
+        if index == 0:
+            new_node.next = self.head
+            self.head = new_node
+            return
+
+        prev_node = self.get_node(index - 1)
+        next_node = prev_node.next
+        prev_node.next = new_node
+        new_node.next = next_node
 
 linked_list = LinkedList(5)
 print(linked_list.head.data)
