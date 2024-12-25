@@ -79,6 +79,10 @@ class LinkedList:
         prev_node.next = new_node
         new_node.next = next_node
 
+    def delete_node(self, index): # index 번째 노드 삭제
+        node = self.get_node(index - 1)
+        node.next = node.next.next
+
 linked_list = LinkedList(5)
 print(linked_list.head.data)
 linked_list.append(3)
