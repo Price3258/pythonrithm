@@ -33,6 +33,9 @@ class LinkedList:
         cur = self.head
         new_node = Node(data)
         prev = self.find(prev_data)
+        if prev is None:
+            print("prev is not found")
+            return
         while cur is not None:
             if prev.data == cur.data:
                 new_node.next = prev.next
@@ -54,6 +57,16 @@ class LinkedList:
             prev = cur
             cur = cur.next
 
+    def get_node(self, index): # index 번째에 있는 노드 찾기
+        cur = self.head
+        cur_index = 0
+
+        while cur_index != index:
+            cur = cur.next
+            cur_index += 1
+
+        return cur
+
 
 linked_list = LinkedList(5)
 print(linked_list.head.data)
@@ -72,3 +85,4 @@ linked_list.insert(5,3)
 linked_list.display_all()
 linked_list.insert(3,8)
 linked_list.display_all()
+linked_list.insert(12,10)
