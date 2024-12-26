@@ -5,14 +5,12 @@
 def find_max_plus_or_multiply(array):
     max_value = 0
 
-    for i, value in enumerate(array):
 
-        # 현재 값과 다음 값을 가져옴
-        current = value
-        if current > 1 and max_value > 1:
-            max_value *= current
+    for _, value in enumerate(array):
+        if value > 1 and max_value > 1:
+            max_value *= value
         else:
-            max_value += current
+            max_value += value
 
     return max_value
 
