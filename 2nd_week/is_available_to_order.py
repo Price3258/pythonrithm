@@ -27,21 +27,3 @@ def is_available_to_order(menus, orders):
 
 result = is_available_to_order(shop_menus, shop_orders)
 print(result)
-
-def is_available_to_order_v2(menus, orders):
-
-    menus.sort()
-    orders.sort()
-    # current_index = len(menus) // 2
-
-    value =[]
-
-    for i in range(len(menus)):
-        for j in range(len(orders)):
-            if orders[j] == menus[i]:
-                value.append(orders[j])
-
-    return len(value) == len(orders)
-
-result = is_available_to_order_v2(shop_menus, shop_orders)
-# print(result)
