@@ -30,10 +30,20 @@ class LinkedList:
             cur = cur.next
         return int(value)
 
+    def get_single_linked_list_sum(self): # 과제의 풀이
+        sum = 0
+        cur = self.head
+        while cur is not None:
+            sum = sum * 10 + cur.data
+            print(sum)
+            cur = cur.next
+
+        return sum
+
 
 
 def get_linked_list_sum(first, second):
-    # 구현해보세요!
+    print(first.get_single_linked_list_sum() + second.get_single_linked_list_sum())
 
     return first.get_value() + second.get_value()
 
