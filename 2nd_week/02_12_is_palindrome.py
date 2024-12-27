@@ -22,3 +22,19 @@ def is_palindrome_v2(string):
 input = "abcba"
 
 print(is_palindrome_v2(input))
+
+from collections import deque
+
+def is_palindrome_deque(string):
+   dq = deque(string)
+
+   while dq:
+       if dq.popleft() != dq.pop():
+           return False
+
+       return True
+
+
+input = "abcba"
+
+print(is_palindrome_deque(input))
