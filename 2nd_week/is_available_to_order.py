@@ -55,3 +55,14 @@ def is_existing_target_number_binary(target, array):
 
 result = is_available_to_order_v2(shop_menus, shop_orders)
 print(result)
+
+def is_available_to_order_v3(menus, orders):
+    menus_set = set(menus)
+    for order in orders:
+        if order not in menus_set:
+            return False
+    return True
+
+
+result = is_available_to_order_v3(shop_menus, shop_orders)
+print(result)
