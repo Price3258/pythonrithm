@@ -9,7 +9,7 @@
 #
 # N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 작성하시오.
 
-def josephus_problem(n, k):
+def josephus_problem(n, k): # O(n²)
     people = list(range(1, n + 1))  # 1부터 N까지의 사람들
     result = []  # 제거된 순서를 저장할 리스트
     index = 0  # 현재 인덱스
@@ -28,7 +28,7 @@ print(josephus_problem(n, k))
 
 from collections import deque
 
-def josephus_problem_v2(n, k): # deque 를 사용한 답안
+def josephus_problem_v2(n, k): # deque 를 사용한 답안 0(n)
     # 1부터 N까지의 사람을 deque로 초기화
     people = deque(range(1, n + 1))
     result = []
