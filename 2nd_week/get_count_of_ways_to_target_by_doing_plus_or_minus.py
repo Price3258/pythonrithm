@@ -36,3 +36,26 @@ def get_count_of_ways_to_target_by_doing_plus_or_minus(array, target):
     return target_count
 
 print(get_count_of_ways_to_target_by_doing_plus_or_minus(numbers, target_number))  # 5를 반환해야 합니다!
+
+
+
+def dfs(numbers, target, index, current_sum):
+    # 1. 종료 조건: 모든 숫자를 탐색한 경우
+    if index == len(numbers):
+        # 목표 값을 찾으면 1 반환
+        return 1 if current_sum == target else 0
+
+    # 2. 현재 숫자를 더하거나 빼는 두 가지 경우로 분기
+    add_case = dfs(numbers, target, index + 1, current_sum + numbers[index])
+    subtract_case = dfs(numbers, target, index + 1, current_sum - numbers[index])
+
+    # 3. 두 가지 경우의 결과를 합산하여 반환
+    return add_case + subtract_case
+
+def solution(numbers, target):
+    return dfs(numbers, target, 0, 0)
+
+# 테스트
+numbers = [1, 1, 1, 1, 1]
+target = 3
+print(solution(numbers, target))  # 출력: 5
