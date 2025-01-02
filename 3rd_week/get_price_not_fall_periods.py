@@ -28,3 +28,25 @@ print("정답 = [4, 3, 1, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_peri
 print("정답 = [6, 2, 1, 3, 2, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods([3, 9, 9, 3, 5, 7, 2]))
 print("정답 = [6, 1, 4, 3, 1, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods([1, 5, 3, 6, 7, 6, 5]))
 print("정답 = [1, 2, 1, 3, 2, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods([10, 9, 9, 3, 5, 10, 2]))
+
+
+def get_price_not_fall_periods_v2(prices):
+    result = [0] * len(prices)
+    stack = []
+
+    for i in range(len(prices)):
+        while stack and prices[stack[-1]] > prices[i]:
+            top = stack.pop()
+            result[top] = i - top
+        stack.append(i)
+    while stack:
+        top = stack.pop()
+        result[top] = len(prices) - 1 - top
+
+    return result
+
+print("---v2---")
+print("정답 = [4, 3, 1, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods_v2([1, 2, 3, 2, 3]))
+print("정답 = [6, 2, 1, 3, 2, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods_v2([3, 9, 9, 3, 5, 7, 2]))
+print("정답 = [6, 1, 4, 3, 1, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods_v2([1, 5, 3, 6, 7, 6, 5]))
+print("정답 = [1, 2, 1, 3, 2, 1, 0] / 현재 풀이 값 = ", get_price_not_fall_periods_v2([10, 9, 9, 3, 5, 10, 2]))
