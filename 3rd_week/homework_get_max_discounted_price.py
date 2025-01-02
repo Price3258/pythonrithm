@@ -68,7 +68,7 @@ def get_max_discounted_price_v3(prices, coupons):
     total_price = 0
 
     # 쿠폰이 있는 상품에 대해 할인 적용
-    for coupon, price in zip(sorted_coupons, sorted_prices):
+    for coupon, price in zip(sorted_coupons, sorted_prices): # zip 은 짧은 array의 length 기준으로 for 문이 동작함.
         total_price += price * (1 - coupon / 100)
 
     # 쿠폰을 다 쓴 뒤 남은 상품의 가격 합산
