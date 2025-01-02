@@ -14,9 +14,9 @@ def is_correct_parenthesis(string):
     for char in string:
         if char =="(":
             stack.append(char)
-        elif char ==")" and len(stack)==0:
-            return False
-        elif char ==")" and len(stack)>0:
+        elif char == ")":
+            if len(stack) == 0:
+                return False
             stack.pop()
 
     return len(stack) == 0
