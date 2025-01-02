@@ -15,15 +15,15 @@ user_coupons = [20, 40]
 def get_max_discounted_price(prices, coupons):
     total_price = 0
 
-    sorted_coupons = sorted(coupons)
-    sorted_prices = sorted(prices)
-    while sorted_coupons and sorted_prices:
-        coupon = sorted_coupons.pop()
-        price = sorted_prices.pop()
+    coupons.sort()
+    prices.sort()
+    while coupons and prices:
+        coupon = coupons.pop()
+        price = prices.pop()
         total_price += price - (price * (coupon / 100))
 
-    while sorted_prices:
-        price = sorted_prices.pop()
+    while prices:
+        price = prices.pop()
         total_price += price
 
     return int(total_price)
