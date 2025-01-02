@@ -60,3 +60,24 @@ print("정답 = 485000 / 현재 풀이 값 = ", get_max_discounted_price_v2([500
 print("정답 = 1550000 / 현재 풀이 값 = ", get_max_discounted_price_v2([50000, 1500000], []))
 print("정답 = 1458000 / 현재 풀이 값 = ", get_max_discounted_price_v2([20000, 100000, 1500000], [10, 10, 10]))
 
+def get_max_discounted_price_v3(prices, coupons):
+    # 상품과 쿠폰 정렬 (내림차순으로 정렬하여 가장 비싼 상품에 큰 할인 적용)
+    sorted_prices = sorted(prices, reverse=True)
+    sorted_coupons = sorted(coupons, reverse=True)
+
+    total_price = 0
+
+    # 쿠폰이 있는 상품에 대해 할인 적용
+    for coupon, price in zip(sorted_coupons, sorted_prices):
+        total_price += price * (1 - coupon / 100)
+
+    # 쿠폰을 다 쓴 뒤 남은 상품의 가격 합산
+    total_price += sum(sorted_prices[len(sorted_coupons):])
+
+    return int(total_price)
+
+
+print("정답 = 926000 / 현재 풀이 값 = ", get_max_discounted_price_v3([30000, 2000, 1500000], [20, 40]))
+print("정답 = 485000 / 현재 풀이 값 = ", get_max_discounted_price_v3([50000, 1500000], [10, 70, 30, 20]))
+print("정답 = 1550000 / 현재 풀이 값 = ", get_max_discounted_price_v3([50000, 1500000], []))
+print("정답 = 1458000 / 현재 풀이 값 = ", get_max_discounted_price_v3([20000, 100000, 1500000], [10, 10, 10]))
