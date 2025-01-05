@@ -18,8 +18,8 @@ def dfs_recursion(adjacent_graph, cur_node, visited_array):
     visited_array.append(cur_node)
     print("current_node", cur_node, "adjacent_graph[cur_node]", adjacent_graph[cur_node])
     for adjacent_node in adjacent_graph[cur_node]:
-        if adjacent_node not in visited_array:
-            dfs_recursion(adjacent_graph, adjacent_node, visited_array)
+        if adjacent_node not in visited_array: ## 인접 노드 중에 방문 하지 않은 조건
+            dfs_recursion(adjacent_graph, adjacent_node, visited_array) ## 방문 안했으면 거기서 다시 탐색 시작
 
 
     return
