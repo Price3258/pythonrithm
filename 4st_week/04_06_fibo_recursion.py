@@ -10,4 +10,3 @@ def fibo_recursion(n):
 
 
 print(fibo_recursion(20))
-print(fibo_recursion(100))
