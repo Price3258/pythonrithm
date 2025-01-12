@@ -13,20 +13,18 @@ Q. 음이 아닌 정수들로 이루어진 배열이 있다.
 
 """
 
-numbers = [1, 1, 1, 1, 1]
-target_number = 3
+def get_all_ways_by_doing_plus_or_minus(arr, current_index, current_sum, all_ways):
+    if current_index == len(arr):
+        all_ways.append(current_sum)
+        return
+    get_all_ways_by_doing_plus_or_minus(arr, current_index + 1, current_sum + arr[current_index],all_ways)
+    get_all_ways_by_doing_plus_or_minus(arr, current_index + 1, current_sum - arr[current_index],all_ways)
+    return all_ways
 
 def get_count_of_ways_to_target_by_doing_plus_or_minus(array, target):
     all_ways = []
 
-    def get_all_ways_by_doing_plus_or_minus(arr, current_index, current_sum):
-        if current_index == len(arr):
-            all_ways.append(current_sum)
-            return
-        get_all_ways_by_doing_plus_or_minus(arr, current_index + 1, current_sum + arr[current_index])
-        get_all_ways_by_doing_plus_or_minus(arr, current_index + 1, current_sum - arr[current_index])
-
-    get_all_ways_by_doing_plus_or_minus(array, 0, 0)
+    get_all_ways_by_doing_plus_or_minus(array, 0, 0, all_ways)
     target_count = 0
 
     for way in all_ways:
@@ -35,8 +33,11 @@ def get_count_of_ways_to_target_by_doing_plus_or_minus(array, target):
 
     return target_count
 
-print(get_count_of_ways_to_target_by_doing_plus_or_minus(numbers, target_number))  # 5를 반환해야 합니다!
 
+# 테스트
+numbers = [1, 1, 1, 1, 1]
+target_number = 3
+print(get_count_of_ways_to_target_by_doing_plus_or_minus(numbers, target_number))  # 5를 반환해야 합니다!
 
 
 def dfs(numbers, target, index, current_sum):
