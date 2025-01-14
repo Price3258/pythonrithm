@@ -37,7 +37,7 @@ def is_available_to_take_out_only_red_marble(game_map):
             next_red_row, next_red_col, r_count = move_until_wall_or_hole(red_row, red_col, dr[i], dc[i], game_map)
             next_blue_row, next_blue_col, b_count = move_until_wall_or_hole(blue_row, blue_col, dr[i], dc[i], game_map)
 
-            if game_map[next_blue_row][next_blue_col] == 'O':  # 파란 구슬이 구멍에 떨어지지 않으면(실패 X)
+            if game_map[next_blue_row][next_blue_col] == 'O':  # 파란 구슬이 구멍에 들어가면 실패
                 continue
             if game_map[next_red_row][next_red_col] == 'O':  # 빨간 구슬이 구멍에 떨어진다면(성공)
                 return True
