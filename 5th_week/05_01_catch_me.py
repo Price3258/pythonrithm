@@ -17,8 +17,6 @@
 """
 from collections import deque
 
-from collections import deque
-
 def catch_me(cony_loc, brown_loc):
     max_position = 200000  # 위치 범위
     visited = [[-1] * (max_position + 1) for _ in range(2)]  # 방문 여부와 시간 저장
