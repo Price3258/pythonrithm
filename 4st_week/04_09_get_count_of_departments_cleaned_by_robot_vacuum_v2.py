@@ -39,26 +39,22 @@ def get_count_of_departments_cleaned_by_robot_vacuum_v2(r, c, d, room):
     N, M = len(room),len(room[0])
 
     while True:
-        # 현재 위치 청소
         if room[x][y] == 0:
-            room[x][y] = 2  # 청소 완료 표시
+            room[x][y] =2
             cleaned_count += 1
 
-        # 4방향 탐색
         found_cleanable = False
 
         for _ in range(4):
             direction = turn_left(direction)
-            nx = x + directions[direction][0]
-            ny = y + directions[direction][1]
-
+            nx, ny = x + directions[direction][0] , y + directions[direction][1]
             if 0 <= nx < N and 0 <= ny <M and room[nx][ny] == 0:
                 x , y = nx, ny
                 found_cleanable = True
                 break
 
         if not found_cleanable:
-            back_direction = (direction +2) %4
+            back_direction = (direction +2) % 4
             bx = x+ directions[back_direction][0]
             by = y+ directions[back_direction][1]
             if 0 <= bx < N and 0 <= by <M and room[bx][by] != 1:
