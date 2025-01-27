@@ -29,7 +29,8 @@ def find_count_to_turn_out_to_all_zero_or_all_one(string):
                 count0 += 1
             else:
                 count1 += 1
-
+    print("count0",count0)
+    print("count1",count1)
     # 결과는 두 그룹 중 더 작은 값을 선택
     return min(count0, count1)
 
@@ -39,3 +40,17 @@ result = find_count_to_turn_out_to_all_zero_or_all_one(input)
 print(result)
 print(find_count_to_turn_out_to_all_zero_or_all_one("11001100110011000001"))
 print(find_count_to_turn_out_to_all_zero_or_all_one("11101101"))
+"""
+011110
+루프 전에 count01증가 
+
+1번 루프 
+0 1 다름 
+-> count1 증가 
+1 2 3 4 5 같음
+5 6 다름 
+-> count0 1증가 
+count0 2 
+count1 1 
+
+"""
