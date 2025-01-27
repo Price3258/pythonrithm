@@ -12,9 +12,7 @@ def is_available_to_order(menus, orders):
 
     menus.sort()
     orders.sort()
-
-    # current_index = len(menus) // 2
-
+    
     value =[]
 
     for i in range(len(menus)):
