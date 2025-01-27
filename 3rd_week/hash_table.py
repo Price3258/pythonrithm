@@ -25,11 +25,16 @@ class HashTable:
         return res % self.max_len
 
     def set(self, key, value):
-        index = self._hash(key)
-        self.table[index].append((key, value))
+        index = hash(key) % self.max_len
+        for i, (k, v) in enumerate(self.table[index]):
+            if k == key: # 기존 키의 값을 갱신
+                self.table[index][i] = (key, value)
+                return
+        self.table[index].append((key, value))  # 새 키-값 쌍 추가
+
 
     def get(self, key):
-        index = self._hash(key)
+        index = hash(key) % self.max_len
         value = self.table[index]
         if not value:
             return None
